@@ -9,6 +9,12 @@ const ProductController={
         } catch (error) {
             console.error(error);
         }
+    },
+    async  postDasboard (req,res) {
+        try{
+            const product= await Product.create({...req.body})
+        res.status(201).json(product)
+        } catch (error){console.log(error)}
     }
 
 
