@@ -4,6 +4,10 @@ const router=express.Router(); //inicializo enrutador de express
 
 const ProductController= require("../controllers/productController.js") //requiero ProductController para hacer funcionar los controladores
 
-router.get("/products",ProductController.getProduct );//Devuelve todos los productos [Funciona tanto en Postman como en localhost]
-router.post("/dashboard", ProductController.postDasboard);//Crea un nuevo producto [Funciona tanto en Postman como en localhost cuando actualizas /products]
+router.get("/products",ProductController.getAllProduct );//Devuelve todos los productos [Funciona tanto en Postman como en localhost]
+router.get("/products/:_id",ProductController.getOneProduct );//Devuelve un producto a través del ID [Funciona tanto en Postman como en localhost]
+
+router.post("/products", ProductController.postDasboard);//Crea un nuevo producto [Funciona tanto en Postman como en localhost cuando actualizas /products]
+//router.put("/products/:_id", ProductController.updateProduct); //Modifica un producto existente desde el id
+
 module.exports = {router}; //exporto el enrutador --->[exportar y importar de la misma forma!!]
