@@ -59,7 +59,25 @@ const ProductController={
   } catch (error) {
     res.status(500).json({ error: 'Internal server error' });
   }
-     }
+     },
+
+     async getAllProductSSR (req, res) {
+        try {
+            const products = await Product.find();
+            res.send(`<h1>Productos</h1>
+              ${products.map(product => {
+                return (
+                  `<div>
+                    <h2>Titulo: ${product.nombre}</h2>
+                    <p>Precio: ${product.precio}</p>
+                  </div>`
+                )
+              } ).join('')}
+            </div>`);
+        } catch (error) {
+            console.log(error)
+        }
+      }
 
 
 }
