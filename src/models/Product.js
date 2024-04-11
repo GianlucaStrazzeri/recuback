@@ -8,6 +8,7 @@ imagen: String,
 categoría:String,
 talla: String,
 precio: Number,
+link: String,
 },
 {timestamps:true}); //timestamps nos ayuda a saber cuando ha habido cambios en nuestra base de datos
 
