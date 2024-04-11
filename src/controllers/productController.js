@@ -42,16 +42,17 @@ const ProductController={
     },
    
 
-     async updateProduct(req,res){//creo una función asincrona 
-      try{ //en este bloque recojo la información de la request 
-          const id=req.params._id;
-          const nombre= req.body.nombre;
+     async updateProduct(req,res){//creo una función asincrona para actualizar los productos
+      try{ 
+          const id=req.params._id;//en este bloque recojo la información de la request base de datos/url
+          const nombre= req.body.nombre;//en estos bloques recojo la información del body que envio a través de postman
           const descripción=req.body.descripción;
           const categoria=req.body.categoria;
           const imagen = req.body.imagen;
           const talla=req.body.talla;
           const link=req.body.link;
-          const precio=req.body.precio;        //En este bloque espero la respuesta y busco en la base de datos por id y actualizo todo
+          const precio=req.body.precio;        
+    //En este bloque espero la respuesta y busco en la base de datos por id y actualizo todo
   const product = await Product.findByIdAndUpdate(id,{nombre,descripción,imagen,categoria, talla,precio,link},{new:true})//El new:true garantiza que el documento que reenderiza será el actualizado desde la primera recarga 
   if(!product) {//si el producto no existe devolverá un error 404
       return res.status(404).json({mensaje: 'Product id not found'})

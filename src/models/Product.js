@@ -1,5 +1,5 @@
 // Crear modelo de producto mongoSchema 
-const mongoose= require("mongoose");
+const mongoose= require("mongoose"); //Requiero mongoose
 const ProductSchema= new mongoose.Schema(
     {
 nombre: String,
