@@ -26,6 +26,20 @@ const ProductController={
             console.error(error);
         }
     },
+
+    async deleteProduct (req, res) {
+        try {
+          const id = req.params._id
+          const deletedProduct = await Product.findByIdAndDelete(id)
+          if (!deletedProduct) {
+            return res.status(404).json({message: "Product with that id not found"})
+          }  
+          res.json({message: "Product deleted successfully", deletedProduct})
+        } catch (error) {
+            console.log(error)
+            res.status(500).json({ error: "Internal server error" });
+        }
+    }
    
 
 //     async updateProduct(req,res){//creo una función asincrona 
