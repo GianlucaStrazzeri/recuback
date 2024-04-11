@@ -70,6 +70,7 @@ const ProductController={
                   `<div>
                     <h2>Titulo: ${product.nombre}</h2>
                     <p>Precio: ${product.precio}</p>
+                    <img src="${product.imagen}" alt="${product.descripción}">
                   </div>`
                 )
               } ).join('')}
