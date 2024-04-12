@@ -1,7 +1,7 @@
 const express =require("express") //requerir express
 const app= express()//inicializar express
 const PORT = process.env.PORT || 3000; //process.env,PORT permite que luego se pueda enviar a db
-const { dbConnection,} = require('./src/config/db');//requiero la functión desde db.js
+const { dbConnection} = require('./src/config/db');//requiero la functión desde db.js
 const path= require ("path") //requiero path que servirá para usar express.static 
 
 
