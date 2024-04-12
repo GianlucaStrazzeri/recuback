@@ -73,11 +73,11 @@ const ProductController={
                     <h2>Titulo: ${product.nombre}</h2>
                     <p>Precio: ${product.precio}</p>
                     <a href="${product.link}"> ${product.nombre} </a>
-                    <img src="${product.link}" alt="${product.descripción}"/>
+                    <img src="${product.imagen}" alt="${product.descripción}"/>
                   </div>`
                 )
-              } ).join('')}
-            </div>`);
+              } ).join('')} 
+            </div>`); //El join("") sirve para quitar la coma entre un producto y otro
         } catch (error) {
             console.log(error)
         }
