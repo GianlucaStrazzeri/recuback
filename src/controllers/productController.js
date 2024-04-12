@@ -66,19 +66,22 @@ const ProductController={
      async getAllProductSSR (req, res) {
         try {
             const products = await Product.find();
-            res.send(`<h1>Productos</h1>
-              ${products.map(product => {
-                return (
-                  `
-                    <!DOCTYPE html>
+            res.send(
+              `
+              <!DOCTYPE html>
                     <html lang="es">
                     <head>
                       <meta charset="UTF-8">
                       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                      <link rel="stylesheet" href="../css/styles.css">
+                      <link rel="stylesheet" href="./src/css/styles.css">
                       <title>Document</title>
                     </head>
                     <body>
+              <h1>Productos</h1>
+              ${products.map(product => {
+                return (
+                  `
+                    
                     <div>
                       <h2>Titulo: ${product.nombre}</h2>
                       <p>Precio: ${product.precio}</p>
