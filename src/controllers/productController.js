@@ -73,31 +73,62 @@ const ProductController={
                     <head>
                       <meta charset="UTF-8">
                       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                      <link rel="stylesheet" href="./src/css/styles.css">
-                      <title>Document</title>
+                      <link rel="stylesheet" href="./styles.css">
+                      <title>Products</title>
                     </head>
                     <body>
               <h1>Productos</h1>
               ${products.map(product => {
                 return (
                   `
-                    
                     <div>
                       <h2>Titulo: ${product.nombre}</h2>
                       <p>Precio: ${product.precio}</p>
-                      <a href="${product.link}" class="images"> ${product.nombre} </a>
-                      <img src="${product.imagen}" alt="${product.descripción}"/>
+                      <a href="${product.link}" > ${product.nombre} </a>
+                      <img src="${product.imagen}" alt="${product.descripción}" class="images"/>
                     </div>
-                    </body>
-                    </html>
                   `
                 )
               } ).join('')} 
-            </div>`); //El join("") sirve para quitar la coma entre un producto y otro
+            </div>
+            </body>
+            </html>
+            `
+          ); //El join("") sirve para quitar la coma entre un producto y otro
         } catch (error) {
             console.log(error)
         }
-      }
+      },
+
+      async getOneProductSSR (req, res)  {
+        try {
+            const id = req.params._id;
+            const product = await Product.findById(id)//Find es un metodo de mongo que te permite encontrar todos los productos en este caso
+            res.send(
+              `
+              <!DOCTYPE html>
+                    <html lang="es">
+                    <head>
+                      <meta charset="UTF-8">
+                      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                      <link rel="stylesheet" href="./styles.css">
+                      <title>Camiseta</title>
+                    </head>
+                    <body>
+              <div>
+              <h1>${product.nombre}</h1>
+              <p>Precio: ${product.precio}</p>
+              <a href="${product.link}" > ${product.nombre} </a>
+              <img src="${product.imagen}" alt="${product.descripción}" class="images"/>
+              </div>
+              </body>
+              </html>
+              `
+            );
+        } catch (error) {
+            console.error(error);
+        }
+    },
 
 
 }
