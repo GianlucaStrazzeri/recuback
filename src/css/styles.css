@@ -2,3 +2,13 @@
     height:200px;
     width:200px;
 }
+
+.product{
+    display:flex;
+    gap:20px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border-color: black;
+    border:1px;
+}

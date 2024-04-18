@@ -81,11 +81,12 @@ const ProductController={
               ${products.map(product => {
                 return (
                   `
-                    <div>
+                    <div class="product">
+                    <img src="${product.imagen}" alt="${product.descripción}" class="images"/>
                       <h2>Titulo: ${product.nombre}</h2>
                       <p>Precio: ${product.precio}</p>
                       <a href="${product.link}" > ${product.nombre} </a>
-                      <img src="${product.imagen}" alt="${product.descripción}" class="images"/>
+                      
                     </div>
                   `
                 )
@@ -111,15 +112,16 @@ const ProductController={
                     <head>
                       <meta charset="UTF-8">
                       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                      <link rel="stylesheet" href="./styles.css">
+                      
                       <title>Camiseta</title>
                     </head>
                     <body>
               <div>
-              <h1>${product.nombre}</h1>
+              <h1><a href="http://localhost:3000/ssr" > Vuelve a la Home </a></h1>
+              <h2>${product.nombre}</h2>
               <p>Precio: ${product.precio}</p>
               <a href="${product.link}" > ${product.nombre} </a>
-              <img src="${product.imagen}" alt="${product.descripción}" class="images"/>
+              <button type="submit" name="send" value="delete"${this.deleteProduct}> Eliminar Producto </button>
               </div>
               </body>
               </html>
