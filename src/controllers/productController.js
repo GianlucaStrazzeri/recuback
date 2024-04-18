@@ -35,6 +35,7 @@ const ProductController={
             return res.status(404).json({message: "Product with that id not found"})
           }  
           res.json({message: "Product deleted successfully", deletedProduct})
+          
         } catch (error) {
             console.log(error)
             res.status(500).json({ error: "Internal server error" });
@@ -121,10 +122,11 @@ const ProductController={
               <h2>${product.nombre}</h2>
               <p>Precio: ${product.precio}</p>
               <a href="${product.link}" > ${product.nombre} </a>
-              <button type="submit" name="send" value="delete"${this.deleteProduct}> Eliminar Producto </button>
+              <form action="/products/${id}" method="POST">
+                <button type="submit">Borrar</button>
+              </form>
               </div>
-              </body>
-              </html>
+              
               `
             );
         } catch (error) {
