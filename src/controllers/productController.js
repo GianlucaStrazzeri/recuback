@@ -134,6 +134,28 @@ const ProductController={
         }
     },
 
+    async createProduct (req,res) {
+      try {
+        const product= await Product.create({...req.body})//requiero todas las informaciones del cuerpo 
+        res.send(
+
+          `
+          <h1>Formulario</h1>
+          <form>
+          <input type="text" placeholder="Nombre del producto"> </input>
+          <input type="text" placeholder="Color"> </input>
+          <input type="text" placeholder="Tallas"> </input>
+          <input type="text" placeholder="Precio"> </input>
+          <input type="text" placeholder="Tallas"> </input>
+          <button type="submit">Enviar</button>
+          </form>
+          `
+        )
+      }
+      catch (error) {
+        console.error(error);
+      }
+    }
 
 }
 

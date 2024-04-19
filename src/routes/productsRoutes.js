@@ -26,5 +26,8 @@ router.post("/products/:_id",ProductController.deleteProduct)
 //Modifica un producto existente desde el id
 router.put("/products/:_id", ProductController.updateProduct); 
 
+//Intento de crear un producto desde un formulario
+router.get("/createproduct",ProductController.createProduct);
+
 
 module.exports = {router}; //exporto el enrutador --->[exportar y importar de la misma forma!!]
